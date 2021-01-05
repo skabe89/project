@@ -27,13 +27,18 @@
    <nav> <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
+      <%if !is_logged_in?%>
+        <li><a href='/signup'>Create Account</a></li>
+        <li><a href='/login'>Login</a></li>
+      <%else%>
+        <li><a href='/logout'>Logout</a></li>
+        <li><a href='/'>Home</a></li>
+      <%end%>
       </ul>
     </div> 
   </nav>
 
+  <%if is_logged_in?%>
   <ul id="slide-out" class="sidenav">
     <li><div class="user-view">
       <div class="background">
@@ -51,6 +56,7 @@
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
   </ul>
   <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  <%end%>
 
   
     

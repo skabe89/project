@@ -10,7 +10,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    binding.pry
     erb :welcome
   end
 
@@ -18,4 +17,14 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
+
+  helpers do 
+   def is_logged_in?
+     !!session[:user_id]
+   end
+
+   def current_user
+    User.find_by(id: session[:user_id])
+   end
+  end
 end
