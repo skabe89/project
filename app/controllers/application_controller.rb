@@ -19,12 +19,20 @@ class ApplicationController < Sinatra::Base
 
 
   helpers do 
-   def is_logged_in?
-     !!session[:user_id]
-   end
+    def is_logged_in?
+      !!session[:user_id]
+    end
 
-   def current_user
-    User.find_by(id: session[:user_id])
-   end
+    def current_user
+      User.find_by(id: session[:user_id])
+    end
+
+    def following
+      Follow.where(follower_id: session[:user_id])
+    end
+
+    def followers
+      Follow.where(following_id: session[:user_id])
+    end
   end
 end

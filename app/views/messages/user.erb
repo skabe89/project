@@ -1,7 +1,8 @@
-<h1>wahwahwah</h1>
-
+<div class="container">
+<h1>Your messages</h1>
 <%@messages.each do |m|%>
   <h3><%=User.find_by(id: m[:sender_id])[:username]%></h3>
   <p><%=m[:content]%></p>
   <p><a href="/messages/<%=m[:sender_id]%>">Reply</a></p>
 <%end%>
+</div>
