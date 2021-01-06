@@ -38,5 +38,9 @@ class ApplicationController < Sinatra::Base
         User.find_by(id: i.follower_id)
       end 
     end
+
+    def already_following?(user_id)
+      !Follow.where(["follower_id = ? and following_id = ?", current_user, user_id]).empty?
+    end
   end
 end

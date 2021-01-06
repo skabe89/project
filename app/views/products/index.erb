@@ -2,3 +2,13 @@
 <p>products will have links to individual info pages</p>
 <p>procuts will have a short description here</p>
 <p>products will be able to be favorited here</p>
+
+<div class="container">
+<%@products.each do |pro|%>
+  <h4><%=pro.name%></h4>
+  <h5>By <%=pro.brand%></h5>
+  <%if pro.favorite%>
+    <i class="tiny material-icons">favorite</i>
+  <%end%>
+<%end%>
+</div>

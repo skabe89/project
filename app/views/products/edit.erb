@@ -1,0 +1,73 @@
+
+<div class="container">
+  <h1>Editing <%=@product.brand+" "%><%=@product.name%></h1><br>
+  <div>
+
+  <form action="/products/<%=@product.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <div class="input-field">
+      <input  required id="brand" name="product[brand]" type="text" class="validate" value="<%=@product.brand%>">
+      <label for="brand">Brand</label>
+    </div>
+    <div class="input-field">
+      <input  required id="name" name="product[name]" type="text" class="validate" value="<%=@product.name%>">
+      <label for="name">Name</label>
+    </div>
+
+      <div class="input-field">
+    <select id="product_type" type="text" name="product[product_type]">
+      <option value="" disabled selected>Type</option>
+      <option value="Cleanser">Cleanser</option>
+      <option value="Exfoliator">Exfoliator</option>
+      <option value="Treatment">Treatment</option>
+      <option value="Serum">Serum</option>
+      <option value="Face Oil">Face Oil</option>
+      <option value="Sunscreen">Sunscreen</option>
+      <option value="Moisturizer">Moisturizer</option>
+      <option value="Chemical Peel">Chemical Peel</option>
+      <option value="Toner">Toner</option>
+      <option value="Face Mask">Face Mask</option>
+      <option value="Eye Cream">Eye Cream</option>
+      <option value="Perfume">Perfume</option>
+    </select>
+      <label for="product_type"></label>
+    </div>
+
+    <div class="input-field">
+      <input  id="description" name="product[description]" type="text" class="validate" value="<%=@product.description%>">
+      <label for="description">Use/Description</label>
+    </div>
+    <div class="input-field">
+      <input  id="price" name="product[price]" type="text" class="validate" value="<%=@product.price%>">
+      <label for="price">Price</label>
+    </div>
+    <div class="input-field">
+    <select id="rating" name="product[rating]">
+      <option value="" disabled selected>Rating</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+      <label for="rating"></label>
+    </div>
+    <div class="">
+      <label for="favorite"><input  id="favorite" name="product[favorite]" type="checkbox" class="validate"><span>Favorite</span></label>
+    </div>
+    <br>
+    <input type="submit" value="Add Changes">
+  </form>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>

@@ -3,3 +3,11 @@
 <p>will have the ability to favorite</p>
 <p>will have option to edit here</p>
 <p>will have option to delete here</p>
+
+<div class="container">
+  <h1><%=@product.name%> by <%=@product.brand %></h1>
+    <%if @product.favorite == "on"%>
+      <i class="tiny material-icons">favorite</i>
+    <%end%>
+  <p><%=@product.product_type%></p>
+</div>
