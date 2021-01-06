@@ -34,8 +34,9 @@ class ApplicationController < Sinatra::Base
     end
 
     def followers
-      Follow.where(following_id: session[:user_id])
-        
+      Follow.where(following_id: session[:user_id]).collect do |i|
+        User.find_by(id: i.follower_id)
+      end 
     end
   end
 end
