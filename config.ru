@@ -6,6 +6,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use SessionsController
+use MessagesController
 use UsersController
 use ProfileController
 use ProductsController

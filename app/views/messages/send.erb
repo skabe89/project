@@ -1,0 +1,11 @@
+<div class="container">
+</form><h3>Message to <%=@user.username%></h3>
+
+<form action="/send" method="post">
+  <div class="input-field">
+    <input  id="receiver" name="receiver_id" type="hidden" value="<%=@user[:id]%>">
+    <input  id="title" name="content" type="text" class="validate">
+    <label for="title">Message</label>
+  </div>
+  <input type="submit" value="Send Message">
+</div>
