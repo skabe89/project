@@ -8,8 +8,12 @@ class FollowsController < ApplicationController
     redirect '/'
   end
 
-  def followed
-    Follow.where(follower_id: session[:user_id])
+  get '/following' do
+    @following = following
+    binding.pry
+    erb :'profile/following'
   end
+
+  
 
 end

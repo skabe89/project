@@ -28,11 +28,14 @@ class ApplicationController < Sinatra::Base
     end
 
     def following
-      Follow.where(follower_id: session[:user_id])
+      Follow.where(follower_id: session[:user_id]).collect do |i|
+        User.find_by(id: i.following_id)
+      end
     end
 
     def followers
       Follow.where(following_id: session[:user_id])
+        
     end
   end
 end
