@@ -1,12 +1,15 @@
 class MessagesController < ApplicationController
   
   get '/messages' do
+    redirect_if_not_logged_in
     @messages = current_user.messages.all.reverse
     erb :'messages/user'
   end
 
   get '/messages/:id' do
+    redirect_if_not_logged_in
     @user = User.find_by(id: params[:id])
+    redirect_if_user_not_found
     erb :'messages/send'
   end
 
@@ -16,5 +19,8 @@ class MessagesController < ApplicationController
     # binding.pry
   end
 
-
+  private
+  def redirect_if_user_not_found
+    redirect '/messages' unless @user
+  end
 end

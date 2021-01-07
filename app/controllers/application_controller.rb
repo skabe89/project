@@ -13,11 +13,6 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  get "/new" do
-    erb :new
-  end
-
-
   helpers do 
     def is_logged_in?
       !!session[:user_id]

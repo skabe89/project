@@ -1,7 +1,12 @@
-<h1>Your seach has found</h1>
 
+<div class="container">
 
-<%@users.each do |user|%>
-<h3><%=user.username%></h3>
-<p>anchor to profile page</p>
+<%if !@users.empty?%>
+<h1>Your seach has found...</h1>
+  <%@users.each do |user|%>
+  <h3><a href="/profile/<%=user.id%>"><%=user.username%></a></h3>
+  <%end%>
+<%else%>
+  <h2>  Sorry, we could not find that user! </h2>
 <%end%>
+</div>

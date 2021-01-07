@@ -25,20 +25,27 @@
     <%end%>
     <% end %>
   </div>
-  <br>
-  <br>
+<br>
+<br>
   <div>
   <h5>Routine</h5>
   <h6>Morning: <%=@user.profile.morning_routine%></h6>
   <h6>Evening: <%=@user.profile.evening_routine%></h6>
   </div>
-  <br>
-  <br>
+<br>
+<br>
   <div>
   <h5>Bio</h5>
   <h6><%=@user.profile.bio%></h6>
   </div>
-
+<br>
+<br>
+  <div>
+  <h5>Users currently following <%=@user.username%></h5>
+  </div>
+  <%Follow.where(:following_id => @user.id).each do |follow|%>
+  <p><a href="/profile/<%=User.find_by(id: follow.follower_id).id%>"><%=User.find_by(id: follow.follower_id).username%></a></p>
+  <%end%>
 
   
 </div>
