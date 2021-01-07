@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
     redirect_if_not_logged_in
     find_product
     redirect_if_product_not_found
-    redirect_if_not_owner
+    # redirect_if_not_owner
     erb :'products/show'
   end
 
@@ -34,12 +34,16 @@ class ProductsController < ApplicationController
     find_product
     if @product.update(params[:product])
       redirect "/products/#{@product.id}"
+    else
+      redirect "/products/#{@product.id}/edit"
     end
   end
 
   post '/products/new' do
     product = current_user.products.build(params[:product])
-    if product.save
+    if product_already_exists?
+      redirect '/products'
+    elsif product.save
       redirect '/products'
     else
       redirct '/products/new'
@@ -58,6 +62,10 @@ class ProductsController < ApplicationController
   private
   def find_product
     @product = Product.find_by(id: params[:id])
+  end
+
+  def product_already_exists?
+    current_user.products.exists?(:brand => params[:product][:brand], :name => params[:product][:name])
   end
 
   def redirect_if_product_not_found

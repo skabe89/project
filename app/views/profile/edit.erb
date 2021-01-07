@@ -1,5 +1,32 @@
-<h1>create profile page here</h1>
-<p>list of favorited products</p>
-<p>daily routine</p>
-<p>link to products page</p>
-<p>additional content?</p>
+
+
+ <div class="container">
+    <form action="/profile/<%=@user.id%>" method="post" method="post">
+    <input type="hidden" name="_method" value="patch">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="morning_routine" name="profile[morning_routine]" class="materialize-textarea"><%=@user.profile.morning_routine%></textarea>
+          <label for="morning_routine">Morning Routine</label>
+        </div>
+      </div>
+      <br>
+      <br>
+       <div class="row">
+        <div class="input-field col s12">
+          <textarea id="evening_routing" name="profile[evening_routine]" class="materialize-textarea"><%=@user.profile.evening_routine%></textarea>
+          <label for="evening_routing">Evening Routine</label>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="bio" name="profile[bio]" class="materialize-textarea"><%=@user.profile.bio%></textarea>
+          <label for="bio">About Me</label>
+          <br>
+          <br>
+        <input type="submit" value="Submit Changes">
+        </div>
+      </div>
+    </form>
+  </div

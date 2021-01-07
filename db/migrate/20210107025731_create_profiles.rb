@@ -1,7 +1,8 @@
 class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
-      t.string :routine
+      t.string :morning_routine
+      t.string :evening_routine
       t.string :bio
       t.integer :user_id
 

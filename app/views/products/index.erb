@@ -1,10 +1,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<h1>List of products</h1>
-<p>products will have links to individual info pages</p>
-<p>procuts will have a short description here</p>
-<p>products will be able to be favorited here</p>
 
-<h5><a href="/products/new">Add new product here</a></h5>
+<h5><a href="/products/new">Add New Product</a></h5>
 </div>
 <div class="container"> <% @products.each do |product| %>
   <%if product.favorite%>
@@ -15,7 +11,7 @@
           <span class="card-title"><%=product.brand + " " + product.name%></span>
           <p>Product Type: <%=product.product_type%></p>
           <p>Cost: $<%=product.price%></p>
-          <p>My Usage: <%=product.description%></p>
+          <p>How I use: <%=product.description%></p>
         </div>
         <div class="card-action">
           <a href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>

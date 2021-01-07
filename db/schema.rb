@@ -43,11 +43,12 @@ ActiveRecord::Schema.define(version: 20210107025731) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string   "routine"
+    t.string   "morning_routine"
+    t.string   "evening_routine"
     t.string   "bio"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|

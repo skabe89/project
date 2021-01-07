@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 <h1>Product info page</h1>
 <p>will have usage attributes</p>
 <p>will have the ability to favorite</p>
@@ -7,12 +9,22 @@
 <div class="container">
   <h1><%=@product.name%> by <%=@product.brand %></h1>
     <%if @product.favorite == "on"%>
-      <i class="tiny material-icons">favorite</i>
+      <i class="tiny material-icons" style="font-size:20px;color:red">favorite</i>
     <%end%>
+
   <p><%=@product.product_type%></p>
-  
+
+<%if @product.user_id == current_user.id%>
+
+<form action="/products/<%=@product.id%>/edit" method="get">
+  <input type="submit" value="Edit Product" class="btn blue white-text">
+</form>
+<br> 
 <form action="/products/<%=@product.id%>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Product" class="btn-small red white-text">
+  <input type="submit" value="Delete Product" class="btn red white-text">
 </form>
+
+<%end%>
+
 </div>

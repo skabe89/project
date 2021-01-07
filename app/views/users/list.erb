@@ -4,6 +4,8 @@
     <h4><%=user.username%></h4>
       <%if already_following?(user.id)%>
         <p>Currently Following</p>
+      <%elsif user.id == current_user.id%>
+        <br>
       <%else%>
         <p><a href="/add/<%=user.id%>">Follow</a></p>
       <%end%>

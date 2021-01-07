@@ -1,5 +1,79 @@
-<h1>Home Page</h1>
-<h2>#Needs design and tells about the app</h2>
-<p>what the app is used for</p>
-<p>how many users</p>
-<p>showcase favorite proucts?</p>
+<style>
+      body {
+        background-color: white;
+      }
+      .background {
+        position: relative; 
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .background::before {
+        content: " ";
+        background-image: url(https://wallup.net/wp-content/uploads/2017/11/23/523542-bicycle-cherry_blossom.jpg);
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.75;
+      }
+      .div-1 {
+        opacity: .75;    
+      position: relative;
+      text-align: center;
+      }
+      .div-1:hover {
+        opacity: 1.0;
+}
+</style>
+
+<div class="background">
+<div>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="div-1 card large white">
+        <div class="card-content blue-text">
+          <span class="card-title"><h1 class="center-align">About the app</h1></span>
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m4">
+      <div class="div-1 card large orange lighten-2">
+        <div class="card-content white-text">
+          <span class="card-title"><h1 class="center-align">Users</h1></span>
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m4">
+      <div class="div-1 card large light-blue lighten-1">
+        <div class="card-content white-text">
+          <span class="card-title"><h1 class="center-align">Featured Product</h1></span>
+          <p>Will take a random product that has been fovrited. Show a couple attributes and say who has favorited it</p>
+        </div>
+        <div class="card-action">
+          <a class="black-text" href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
