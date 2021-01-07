@@ -6,8 +6,15 @@ class ProfileController < ApplicationController
 
   get '/profile/:id' do
     @user = User.find_by(id: params[:id])
+    erb :'profile/show'
+  end
+
+  get '/profile/:id/edit' do
+    @user = User.find_by(id: params[:id])
     erb :"profile/#{@user.id}"
   end
+
+  
 
 end
 

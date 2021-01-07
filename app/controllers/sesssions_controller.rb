@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
   post '/signup' do
     user = User.new(params[:user])
     if user.save
+      profile = user.build_profile(routine: "Update with your routine", bio: "Update with a quick bio!")
+      profile.save
       session[:user_id] = user.id
       redirect '/'
     else

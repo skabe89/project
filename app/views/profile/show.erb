@@ -1,0 +1,21 @@
+
+<div class="container">
+<h1><%=@user.username%></h1>
+<br>
+<br>
+<div>
+  <%@user.products.each do |product|%>
+    <%if product.favorite%>
+    <h5><%=product.brand+" "%> <%product.name%></h5>
+    <%end%>
+  <%end%>
+</div>
+<br>
+<div>
+  <h6><%=@user.profile.routine%></h6>
+</div>
+<br>
+<div>
+  <h6><%=@user.profile.bio%></h6>
+</div>
+</div>
