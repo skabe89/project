@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     find_product
     redirect_if_product_not_found
     redirect_if_not_owner
-    @place = "on" if find.favorite
+    @place = "on" if find_product.favorite
     @product.update(favorite: nil)
     # binding.pry
     erb :'products/edit'

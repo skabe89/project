@@ -1,21 +1,45 @@
-
 <div class="container">
-<h1><%=@user.username%></h1>
+<h1 class="center-align"><%=@user.username.capitalize%></h1>
 <br>
 <br>
-<div>
-  <%@user.products.each do |product|%>
-    <%if product.favorite%>
-    <h5><%=product.brand+" "%> <%product.name%></h5>
+<h3 class="center-align"><%=@user.username.capitalize%>'s Favorite Products</h3>
+<br>
+<div> <% @user.products.each do |product| %>
+  <%if product.favorite%>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card green lighten-3">
+        <div class="card-content brown-text text-lighten-3">
+          <span class="card-title"><%=product.brand + " " + product.name%></span>
+          <p>Product Type: <%=product.product_type%></p>
+          <p>Cost: $<%=product.price%></p>
+          <p>My Usage: <%=product.description%></p>
+        </div>
+        <div class="card-action">
+          <a href='/products/<%= product.id %>'>Product Page</a>
+          <a href="">Add to Wish List &nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
+        </div>
+      </div>
+    </div>
     <%end%>
-  <%end%>
-</div>
-<br>
-<div>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <div>
+  <h5>Routine</h5>
   <h6><%=@user.profile.routine%></h6>
-</div>
-<br>
-<div>
+  </div>
+  <br>
+  <br>
+  <div>
+  <h5>Bio</h5>
   <h6><%=@user.profile.bio%></h6>
+  </div>
+
+
+  
 </div>
-</div>
+
+

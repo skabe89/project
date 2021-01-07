@@ -1,17 +1,51 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <h1>List of products</h1>
 <p>products will have links to individual info pages</p>
 <p>procuts will have a short description here</p>
 <p>products will be able to be favorited here</p>
 
-<div class="container">
-<%@products.each do |pro|%>
-  <h4><%=pro.name%></h4>
-  <h5>By <%=pro.brand%></h5>
-  <%if pro.favorite%>
-    <i class="tiny material-icons">favorite</i>
-  <%end%>
-<%end%>
-</div>
-<div>
 <h5><a href="/products/new">Add new product here</a></h5>
 </div>
+<div class="container"> <% @products.each do |product| %>
+  <%if product.favorite%>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card green lighten-3">
+        <div class="card-content brown-text text-lighten-3">
+          <span class="card-title"><%=product.brand + " " + product.name%></span>
+          <p>Product Type: <%=product.product_type%></p>
+          <p>Cost: $<%=product.price%></p>
+          <p>My Usage: <%=product.description%></p>
+        </div>
+        <div class="card-action">
+          <a href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+          <a><i class="tiny material-icons" style="font-size:20px;color:red">&nbsp;&nbsp;&nbsp;&nbsp;favorite</i></a>
+        </div>
+      </div>
+    </div>
+    <%end%>
+    <%end%>
+
+
+    <div class="container"> <% @products.each do |product| %>
+    <%if !product.favorite%>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card green lighten-3">
+        <div class="card-content brown-text text-lighten-3">
+          <span class="card-title"><%=product.brand + " " + product.name%></span>
+          <p>Product Type: <%=product.product_type%></p>
+          <p>Cost: $<%=product.price%></p>
+          <p>My Usage: <%=product.description%></p>
+        </div>
+        <div class="card-action">
+          <a href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
+        </div>
+      </div>
+    </div>
+    <%end%>
+    <%end%>
+  </div>
+
