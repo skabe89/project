@@ -10,4 +10,9 @@
       <i class="tiny material-icons">favorite</i>
     <%end%>
   <p><%=@product.product_type%></p>
+  
+<form action="/products/<%=@product.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Product" class="btn-small red white-text">
+</form>
 </div>

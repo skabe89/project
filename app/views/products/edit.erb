@@ -57,9 +57,15 @@
     </select>
       <label for="rating"></label>
     </div>
+    <% if @place %>
+    <div class="">
+      <label for="favorite"><input  id="favorite" name="product[favorite]" type="checkbox" checked="checked" class="validate"><span>Favorite</span></label>
+    </div>
+    <%else%>
     <div class="">
       <label for="favorite"><input  id="favorite" name="product[favorite]" type="checkbox" class="validate"><span>Favorite</span></label>
     </div>
+    <%end%>
     <br>
     <input type="submit" value="Add Changes">
   </form>

@@ -10,10 +10,6 @@ class FollowsController < ApplicationController
       redirect '/'
     end
   end
-
-  get '/unfollow/:id' do
-    
-  end
   
   get '/following' do
     @following = following

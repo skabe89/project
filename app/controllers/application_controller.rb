@@ -27,6 +27,16 @@ class ApplicationController < Sinatra::Base
       User.find_by(id: session[:user_id])
     end
 
+    def redirect_if_logged_in
+      # flash[:errors] = ["You are already logged in."]
+      redirect '/products' if is_logged_in?
+     end
+  
+     def redirect_if_not_logged_in
+      # flash[:errors] = ["You must be logged in."]
+      redirect '/' unless is_logged_in?
+     end
+
     def following
       Follow.where(follower_id: session[:user_id]).collect do |i|
         User.find_by(id: i.following_id)
