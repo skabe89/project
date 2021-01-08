@@ -23,15 +23,20 @@
 
     <style>
       .sidnav {
-        background-color: white;
+        background-color: red lighten-4;
+      }
+      .sidenav-trigger {
+        background-color: red lighten-3;
+        padding: 0px 0px 0px 0px
       }
     </style>
     
   </head>
   <body>
     
-   <nav>  <div class="nav-wrapper red lighten-3">
-      <a href="/" class="center-align brand-logo">Logo</a>
+   <nav>  
+   <div class="nav-wrapper red lighten-3">
+      <a href="/" class="brand-logo center">&nbsp;&nbsp;Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <%if !is_logged_in?%>
         <li><a href='/signup'>Create Account</a></li>
@@ -41,11 +46,11 @@
         <li><a href='/'>Home</a></li>
       <%end%>
       </ul>
-    </div> 
+  </div> 
   </nav>
 
   <%if is_logged_in?%>
-  <ul id="slide-out" class="sidenav">
+  <ul id="slide-out" class="sidenav red lighten-5">
     <br>
     <br>
     <div class="container"><li><b>Welcome back <%=current_user.username%>!</b></li></div>
@@ -60,12 +65,12 @@
     <li><a class="subheader"></a></li>
     <li><a class="waves-effect" href="/profile/<%=current_user.profile.id%>/edit">Edit My Profile</a></li>
     <li><a class="waves-effect" href="/products/new">Add New Product</a></li>
-    <li><a href="/search">Search Users</a></li>
+    <li><a class="waves-effect" href="/search">Search Users<i class="material-icons right">search</i></a></li>
     <br>
     
   </ul>
-  <div class="under-nav">
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="medium material-icons">menu</i></a>
+  <div class="under-nav red lighten-3">
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons" >&nbsp;menu</i></a>
   </div>
   <%end%>
 

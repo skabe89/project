@@ -1,1 +1,63 @@
-<h1>products page</h1>
+<style>
+      .div-1 {
+        opacity: .75;    
+      position: relative;
+      text-align: center;
+      }
+      .div-1:hover {
+        opacity: 1.0;
+        text: black;
+      }
+</style>
+
+<div class="container center-align">
+<h1><%=@user.username.capitalize%>'s Products</h1>
+</div>
+
+<div class="container"> 
+<% @products.each do |product| %>
+  <%if product.favorite%>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="div-1 card light-blue lighten-2">
+        <div class="card-content white-text">
+          <div class="center-align">
+          <span class="card-title"><b><%=product.brand + " " + product.name%></b></span>
+          <i class="tiny material-icons center-align" style="font-size:20px;color:red">favorite</i>
+          </div>
+          <br>
+          <p>Product Type: <%=product.product_type%></p>
+          <p>Cost: $<%=product.price%></p>
+          <p>How I use: <%=product.description%></p>
+        </div>
+        <div class="card-action center-align">
+          <a class="white-text" href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a class="right-align white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
+        </div>
+      </div>
+    </div>
+    <%end%>
+    <%end%>
+
+
+    <div class="container"> <% @products.each do |product| %>
+    <%if !product.favorite%>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="div-1 card light-blue lighten-2">
+        <div class="card-content white-text">
+        <div class="center-align">
+          <span class="card-title"><b><%=product.brand + " " + product.name%></b></span>
+        </div>
+          <p>Product Type: <%=product.product_type%></p>
+          <p>Cost: $<%=product.price%></p>
+          <p>How I Use: <%=product.description%></p>
+        </div>
+        <div class="card-action center-align">
+          <a class="white-text" href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a class="white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
+        </div>
+      </div>
+    </div>
+    <%end%>
+    <%end%>

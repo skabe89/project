@@ -19,6 +19,13 @@ class ProfileController < ApplicationController
     erb :"profile/edit"
   end
 
+  get '/profile/:id/products' do
+    redirect_if_not_logged_in
+    find_user
+    @products = @user.products.all
+    erb :"profile/products"
+  end
+
   patch '/profile/:id' do
     current_user
     if current_user.profile.update(params[:profile])

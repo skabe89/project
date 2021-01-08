@@ -9,11 +9,11 @@
         text: black;
       }
 </style>
+<br>
 <div class="container">
 <%if @user != current_user%>
-<a href="/messages/<%=@user.id%>"><i class="material-icons">message</i></a>
+<a href="/messages/<%=@user.id%>"><i class="medium material-icons">message</i></a>
 <%end%>
-<br>
 <%if already_following?(@user.id)%>
 <br>
   <form action="/unfollow/<%=@user.id%>" method="post">
@@ -88,7 +88,7 @@
 <br>
 <br>
 <%if @user == current_user && !Follow.where(:follower_id => @user.id).empty?%>
-<h5>Users you are following</h5>
+<h5>Currently following</h5>
   <%Follow.where(:follower_id => @user.id).each do |follow|%>
   <p><a href="/profile/<%=User.find_by(id: follow.following_id).id%>"><%=User.find_by(id: follow.following_id).username%></a></p>
   <%end%>
@@ -96,7 +96,7 @@
 
 <%if !Follow.where(:following_id => @user.id).empty?%>
   <div>
-  <h5>Users currently following you</h5>
+  <h5>Currently followed by</h5>
   </div>
   <%Follow.where(:following_id => @user.id).each do |follow|%>
   <p><a href="/profile/<%=User.find_by(id: follow.follower_id).id%>"><%=User.find_by(id: follow.follower_id).username%></a></p>

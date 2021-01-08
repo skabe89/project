@@ -1,9 +1,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <style>
-  .div-1{
+  .div-1 {
     padding: 70px 0;
     margin: 0 auto;
 }
+
+  .div-2 {
+  
+  }
 </style>
 
 <div class="div-1 center-align" style="width: 80%;">
@@ -16,13 +20,17 @@
       <i class="tiny material-icons" style="font-size:50px;color:red">favorite</i>
     <%end%>
     <br>
-  <h4 class="left-align"><b>Type:</b> <%=@product.product_type%></h4>
-  <h4 class="left-align"><b>Description: </b><%=@product.description%></h4>
-  <h4 class="left-align"><b>Price: </b>$<%=@product.price%></h4>
-  <h4 class="left-align"><b>Rating: </b><%=@product.rating%>/10</h4>
+    <br>
+  <div class="div-2 background red lighten-4">
+  <br>
+  <h4 class="left-align"><b>&nbsp;&nbsp;Type:</b> <%=@product.product_type%></h4>
+  <h4 class="left-align"><b>&nbsp;&nbsp;Description: </b><%=@product.description%></h4>
+  <h4 class="left-align"><b>&nbsp;&nbsp;Price: </b>$<%=@product.price%></h4>
+  <h4 class="left-align"><b>&nbsp;&nbsp;Rating: </b><%=@product.rating%>/10</h4>
+  <br>
+  </div>
 
 <%if @product.user_id == current_user.id%>
-<br>
 <br>
 <br>
 <div class="left-align">

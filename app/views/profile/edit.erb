@@ -1,6 +1,18 @@
+<style>
+  .div-1 {
+    padding: 60px 40px 40px 0px;
+  }
 
+  .heading {
+    padding: 10px;
+  }
+</style>
 
- <div class="container">
+<div class="heading container center-align">
+  <h3><b>Profile</b></h3>
+</div>
+
+ <div class="div-1 container">
     <form action="/profile/<%=@user.id%>" method="post" method="post">
     <input type="hidden" name="_method" value="patch">
       <div class="row">
@@ -25,7 +37,10 @@
           <label for="bio">About Me</label>
           <br>
           <br>
-        <input type="submit" value="Submit Changes">
+          <div class="center-align">
+          <br>
+        <input type="submit" value="Submit Changes" class="btn blue center-align">
+          </div>
         </div>
       </div>
     </form>

@@ -9,26 +9,32 @@
         opacity: 1.0;
         text: black;
       }
+      .add-new {
+        padding: 15px 0px 25px 15px;
+      }
 </style>
 
-
-<h5><a href="/products/new">Add New Product</a></h5>
+<div class="add-new container">
+<h5><a href="/products/new"><i class="material-icons">add_circle_outline</i> Add New Product</a></h5>
 </div>
-<div class="container"> <% @products.each do |product| %>
+<div class="container"> 
+<% @products.each do |product| %>
   <%if product.favorite%>
   <div class="row">
     <div class="col s12 m4">
       <div class="div-1 card light-blue lighten-2">
         <div class="card-content white-text">
-          <span class="card-title"><%=product.brand + " " + product.name%></span>
+        <div class="center-align">
+          <span class="card-title"><b><%=product.brand + " " + product.name%></b></span>
+          <i class="tiny material-icons" style="font-size:20px;color:red">favorite</i>
+        </div>
           <p>Product Type: <%=product.product_type%></p>
           <p>Cost: $<%=product.price%></p>
           <p>How I use: <%=product.description%></p>
         </div>
-        <div class="card-action">
-          <a class="white-text" href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-          <a class="white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
-          <a><i class="tiny material-icons" style="font-size:20px;color:red">&nbsp;&nbsp;&nbsp;&nbsp;favorite</i></a>
+        <div class="card-action center-align">
+          <a class="white-text" href='/products/<%= product.id %>'>Product Page</a>
+          <a class="white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
         </div>
       </div>
     </div>
@@ -42,12 +48,14 @@
     <div class="col s12 m4">
       <div class="div-1 card light-blue lighten-2">
         <div class="card-content white-text">
-          <span class="card-title"><%=product.brand + " " + product.name%></span>
+        <div class="center-align">
+          <span class="card-title"><b><%=product.brand + " " + product.name%></b></span>
+        </div>  
           <p>Product Type: <%=product.product_type%></p>
           <p>Cost: $<%=product.price%></p>
           <p>How I Use: <%=product.description%></p>
         </div>
-        <div class="card-action">
+        <div class="card-action center-align">
           <a class="white-text" href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
           <a class="white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
         </div>
