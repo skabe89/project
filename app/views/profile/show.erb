@@ -1,5 +1,24 @@
 <div class="container">
-<h1 class="center-align"><%=@user.username.capitalize%></h1>
+<%if @user != current_user%>
+<i class="material-icons">message</i>
+<%end%>
+<br>
+<%if already_following?(@user.id)%>
+<br>
+  <form action="/unfollow/<%=@user.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Unfollow" class="btn grey white-text">
+  </form>
+<%elsif @user == current_user%>
+<br>
+<%else%>
+<br>
+  <form action="/add/<%=@user.id%>" method="get">
+    <input type="submit" value="Follow" class="btn blue white-text">
+  </form>
+<%end%>
+
+<h1 class="center-align"><b><%=@user.username.capitalize%></b></h1>
 <br>
 <br>
 <h3 class="center-align"><%=@user.username.capitalize%>'s Favorite Products</h3>
@@ -40,6 +59,14 @@
   </div>
 <br>
 <br>
+<%if @user == current_user%>
+<h5>User's you are following</h5>
+  <%Follow.where(:follower_id => @user.id).each do |follow|%>
+  <p><a href="/profile/<%=User.find_by(id: follow.following_id).id%>"><%=User.find_by(id: follow.following_id).username%></a></p>
+  <%end%>
+<%end%>
+
+
   <div>
   <h5>Users currently following <%=@user.username%></h5>
   </div>

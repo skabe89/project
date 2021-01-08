@@ -54,7 +54,7 @@
           <br>
           <h4><%=@featured.brand%> <%=@featured.name%></h4>
           <h4><%=@featured.product_type%></h4>
-          <h4>Loved by <a href="/profile/<%=@featured_user.id%>"><%=@featured_user.username%></a></h4>
+          <h4><i class="material-icons" style="font-size:30px;color:red">favorite</i>'d by <a href="/profile/<%=@featured_user.id%>"><%=@featured_user.username%></a></h4>
         </div>
         <div class="card-action">
           <a class="white-text"href="/products/<%=@featured.id%>"><b>Product Page</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
