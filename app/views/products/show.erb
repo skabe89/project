@@ -1,21 +1,30 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+  .div-1{
+    padding: 70px 0;
+    margin: 0 auto;
+}
+</style>
 
-<h1>Product info page</h1>
-<p>will have usage attributes</p>
-<p>will have the ability to favorite</p>
-<p>will have option to edit here</p>
-<p>will have option to delete here</p>
+<div class="div-1 center-align" style="width: 80%;">
+
 
 <div class="container">
   <h1><%=@product.name%> by <%=@product.brand %></h1>
+  <br>
     <%if @product.favorite == "on"%>
-      <i class="tiny material-icons" style="font-size:20px;color:red">favorite</i>
+      <i class="tiny material-icons" style="font-size:50px;color:red">favorite</i>
     <%end%>
-
-  <p><%=@product.product_type%></p>
+    <br>
+  <h4 class="left-align"><b>Type:</b> <%=@product.product_type%></h4>
+  <h4 class="left-align"><b>Description: </b><%=@product.description%></h4>
+  <h4 class="left-align"><b>Price: </b>$<%=@product.price%></h4>
+  <h4 class="left-align"><b>Rating: </b><%=@product.rating%>/10</h4>
 
 <%if @product.user_id == current_user.id%>
-
+<br>
+<br>
+<br>
 <form action="/products/<%=@product.id%>/edit" method="get">
   <input type="submit" value="Edit Product" class="btn blue white-text">
 </form>
@@ -24,7 +33,6 @@
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Product" class="btn red white-text">
 </form>
-
 <%end%>
-
+</div>
 </div>

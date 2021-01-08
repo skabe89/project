@@ -1,11 +1,25 @@
-<div class="container">
-</form><h3>Message to <%=@user.username%></h3>
+<style>
+  .div-1{
+    padding: 70px 0;
+    margin: 0 auto;
+}
+</style>
 
+<div class="div-1 center-align" style="width: 80%;">
+<br>
+<br>
+<div class="container">
+</form><h3><b>Message to <%=@user.username%></b></h3>
+<br>
+<br>
 <form action="/send" method="post">
   <div class="input-field">
     <input  id="receiver" name="receiver_id" type="hidden" value="<%=@user[:id]%>">
-    <input  id="title" name="content" type="text" class="validate">
-    <label for="title">Message</label>
+    <textarea id="message" name="content" class="materialize-textarea"></textarea>
+    <label for="message">Message</label>
   </div>
-  <input type="submit" value="Send Message">
+  <br>
+  <br>
+  <input type="submit" value="Send Message" class="btn blue">
+</div>
 </div>

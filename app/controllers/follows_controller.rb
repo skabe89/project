@@ -18,9 +18,8 @@ class FollowsController < ApplicationController
     redirect_if_not_logged_in
     @user = User.find_by(id: params[:id])
     redirect_if_user_not_found
-    # redirect_if_attempting_to_unfollow_self
+    redirect_if_attempting_to_unfollow_self
     follow = Follow.where(:follower_id => session[:user_id], :following_id => @user.id).first
-    # binding.pry
     follow.destroy
     redirect "profile/#{@user.id}"
   end

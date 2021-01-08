@@ -1,6 +1,6 @@
 <div class="container">
 <%if @user != current_user%>
-<i class="material-icons">message</i>
+<a href="/messages/<%=@user.id%>"><i class="material-icons">message</i></a>
 <%end%>
 <br>
 <%if already_following?(@user.id)%>
