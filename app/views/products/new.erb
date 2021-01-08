@@ -1,6 +1,14 @@
+<style>
+  .div-1{
+    padding: 70px 0;
+    margin: 0 auto;
+}
+</style>
 
-<div class="container">
-  <h1>Create a new Product</h1>
+<div class="div-1 center-align" style="width: 60%;">
+  <h3 class="center-align"><b>Create a new Product</b></h3>
+  <br>
+  <br>
   <div>
   <form action="/products/new" method="post" class="col s12">
     <div class="input-field">
@@ -13,7 +21,7 @@
     </div>
 
       <div class="input-field">
-    <select id="product_type" type="text" name="product[product_type]">
+      <select required-id="product_type" type="text" name="product[product_type]">
       <option value="" disabled selected>Type</option>
       <option value="Cleanser">Cleanser</option>
       <option value="Exfoliator">Exfoliator</option>
@@ -27,7 +35,7 @@
       <option value="Face Mask">Face Mask</option>
       <option value="Eye Cream">Eye Cream</option>
       <option value="Perfume">Perfume</option>
-    </select>
+      </select>
       <label for="product_type"></label>
     </div>
 
@@ -37,10 +45,10 @@
     </div>
     <div class="input-field">
       <input  id="price" name="product[price]" type="text" class="validate">
-      <label for="price">Price</label>
+      <label for="price">Price ($)</label>
     </div>
     <div class="input-field">
-    <select id="rating" name="product[rating]">
+      <select id="rating" name="product[rating]">
       <option value="" disabled selected>Rating</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -52,15 +60,15 @@
       <option value="8">8</option>
       <option value="9">9</option>
       <option value="10">10</option>
-    </select>
+      </select>
       <label for="rating"></label>
     </div>
     <div class="">
       <label for="favorite"><input  id="favorite" name="product[favorite]" type="checkbox" class="validate"><span>Favorite</span></label>
     </div>
     <br>
-    <input type="submit" value="add product">
-  </form>
+    <input type="submit" value="add product" class="btn blue">
+    </form>
   </div>
 </div>
 

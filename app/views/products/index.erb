@@ -1,4 +1,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+      .div-1 {
+        opacity: .75;    
+      position: relative;
+      text-align: center;
+      }
+      .div-1:hover {
+        opacity: 1.0;
+        text: black;
+      }
+</style>
+
 
 <h5><a href="/products/new">Add New Product</a></h5>
 </div>
@@ -6,16 +18,16 @@
   <%if product.favorite%>
   <div class="row">
     <div class="col s12 m4">
-      <div class="card green lighten-3">
-        <div class="card-content brown-text text-lighten-3">
+      <div class="div-1 card light-blue lighten-2">
+        <div class="card-content white-text">
           <span class="card-title"><%=product.brand + " " + product.name%></span>
           <p>Product Type: <%=product.product_type%></p>
           <p>Cost: $<%=product.price%></p>
           <p>How I use: <%=product.description%></p>
         </div>
         <div class="card-action">
-          <a href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-          <a href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+          <a class="white-text" href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a class="white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
           <a><i class="tiny material-icons" style="font-size:20px;color:red">&nbsp;&nbsp;&nbsp;&nbsp;favorite</i></a>
         </div>
       </div>
@@ -28,16 +40,16 @@
     <%if !product.favorite%>
   <div class="row">
     <div class="col s12 m4">
-      <div class="card green lighten-3">
-        <div class="card-content brown-text text-lighten-3">
+      <div class="div-1 card light-blue lighten-2">
+        <div class="card-content white-text">
           <span class="card-title"><%=product.brand + " " + product.name%></span>
           <p>Product Type: <%=product.product_type%></p>
           <p>Cost: $<%=product.price%></p>
-          <p>My Usage: <%=product.description%></p>
+          <p>How I Use: <%=product.description%></p>
         </div>
         <div class="card-action">
-          <a href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-          <a href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
+          <a class="white-text" href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a class="white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
         </div>
       </div>
     </div>

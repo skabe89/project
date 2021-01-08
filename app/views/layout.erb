@@ -30,7 +30,7 @@
   </head>
   <body>
     
-   <nav>  <div class="nav-wrapper">
+   <nav>  <div class="nav-wrapper red lighten-3">
       <a href="/" class="center-align brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <%if !is_logged_in?%>
@@ -46,25 +46,22 @@
 
   <%if is_logged_in?%>
   <ul id="slide-out" class="sidenav">
-    <li><div class="user-view">
-      <div class="background">
-        <img src="images/office.jpg">
-      </div>
-      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
-    <div class="container"><li>Welcome back <%=current_user.username%>!</li></div>
-    <li><a href="/search"><i class="material-icons">search</i>Search Users</a></li>
+    <br>
+    <br>
+    <div class="container"><li><b>Welcome back <%=current_user.username%>!</b></li></div>
+    <br>
+    <br>
     <li><a class="waves-effect" href="/profile/<%=current_user.profile.id%>">My Profile</a></li>
     <li><a class="waves-effect" href="/products">My Products</a></li>
     <li><a class="waves-effect" href="/messages">Inbox</a></li>
     <li><a class="waves-effect" href="/followers">My Followers</a></li>
     <li><a class="waves-effect" href="/following">Users I'm Following</a></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Make Changes</a></li>
+    <li><a class="subheader"></a></li>
     <li><a class="waves-effect" href="/profile/<%=current_user.profile.id%>/edit">Edit My Profile</a></li>
     <li><a class="waves-effect" href="/products/new">Add New Product</a></li>
+    <li><a href="/search">Search Users</a></li>
+    <br>
     
   </ul>
   <div class="under-nav">

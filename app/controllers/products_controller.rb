@@ -58,7 +58,6 @@ class ProductsController < ApplicationController
     redirect '/products'
   end
 
-
   private
   def find_product
     @product = Product.find_by(id: params[:id])
