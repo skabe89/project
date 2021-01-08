@@ -2,7 +2,9 @@ class MessagesController < ApplicationController
   
   get '/messages' do
     redirect_if_not_logged_in
-    @messages = current_user.messages.all.reverse
+    user_messages = Message.all
+    @messages = user_messages.select{|i|i.user_id == current_user.id || i.sender_id == current_user.id}.reverse
+    @messages
     erb :'messages/user'
   end
 
