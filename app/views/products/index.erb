@@ -4,8 +4,25 @@
         opacity: .75;    
       position: relative;
       text-align: center;
+      border-top-right-radius:15px;
+      border-top-left-radius:15px;
+      border-bottom-right-radius:15px;
+      border-bottom-left-radius:15px;
       }
       .div-1:hover {
+        opacity: 1.0;
+        text: black;
+      }
+
+      .div-2 {
+        padding: 5px 0px 10px 0px;
+        border-top-right-radius:15px;
+        border-top-left-radius:15px;
+        border-bottom-right-radius:15px;
+        border-bottom-left-radius:15px;
+      }
+
+      .div-2:hover {
         opacity: 1.0;
         text: black;
       }
@@ -32,8 +49,8 @@
           <p>Cost: $<%=product.price%></p>
           <p>How I use: <%=product.description%></p>
         </div>
-        <div class="card-action center-align">
-          <a class="white-text" href='/products/<%= product.id %>'>Product Page</a>
+        <div class="div-2 center-align">
+          <a class="white-text" href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
           <a class="white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
         </div>
       </div>
@@ -55,7 +72,7 @@
           <p>Cost: $<%=product.price%></p>
           <p>How I Use: <%=product.description%></p>
         </div>
-        <div class="card-action center-align">
+        <div class="div-2 center-align">
           <a class="white-text" href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
           <a class="white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
         </div>

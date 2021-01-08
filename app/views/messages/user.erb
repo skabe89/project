@@ -5,9 +5,17 @@
 }
   .recieved {
     padding: 10px 10px 10px 10px;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    border-bottom-right-radius:15px;
+    border-bottom-left-radius:15px;
   }
   .sent {
     padding: 10px 30px 30px 0px;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    border-bottom-right-radius:15px;  
+    border-bottom-left-radius:15px;
   }
 </style>
 <div class="div-1 center-align container" style="">
@@ -16,8 +24,8 @@
 <div class="container">
 <br>
 <%@messages.each do |m|%>
-  <div class="recieved left-align deep-orange lighten-5">
   <%if m.user_id == current_user.id%>
+  <div class="recieved left-align deep-orange lighten-5">
   <h4><i><b>From: </i><%=User.find_by(id: m[:sender_id])[:username]%></b></h4>
   <h6><%=m[:content]%></h6>
   <form action="/messages/<%=m[:sender_id]%>" method="get">
@@ -25,10 +33,12 @@
   <input type="submit" value="Message User" class="btn-tiny blue white-text">
   </div>
   </form>
+  <br>
   <%else%>
   <div class="sent right-align light-blue lighten-4">
   <h4><i><b>To: </i><%=User.find_by(id: m[:user_id])[:username]%></b></h4>
   <h6><%=m[:content]%></h6>
   </div>
+  <br>
   <%end%>
 <%end%></div>

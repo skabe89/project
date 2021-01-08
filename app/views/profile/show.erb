@@ -1,19 +1,42 @@
 <style>
       .div-1 {
         opacity: .75;    
-      position: relative;
-      text-align: center;
+        position: relative;
+        text-align: center;
+        border-top-right-radius:10px;
+        border-top-left-radius:10px;
+        border-bottom-right-radius:10px;
+        border-bottom-left-radius:10px;
       }
       .div-1:hover {
         opacity: 1.0;
         text: black;
       }
+
+      .div-2 {
+        padding: 5px 0px 10px 0px;
+        opacity: .75;    
+        position: relative;
+        text-align: center;
+        border-top-right-radius:10px;
+        border-top-left-radius:10px;
+        border-bottom-right-radius:10px;
+        border-bottom-left-radius:10px;
+      }
+      .div-2:hover {
+        opacity: 1.0;
+        text: black;
+      }
+
 </style>
 <br>
 <div class="container">
 <%if @user != current_user%>
 <a href="/messages/<%=@user.id%>"><i class="medium material-icons">message</i></a>
 <%end%>
+<form action="/profile/<%=@user.id%>/products" method="get">
+  <input type="submit" value="Full Product Page" class="btn orange lighten-2 white-text">
+</form>
 <%if already_following?(@user.id)%>
 <br>
   <form action="/unfollow/<%=@user.id%>" method="post">
@@ -53,9 +76,9 @@
           <p>My Usage: <%=product.description%></p>
           </div>
         </div>
-        <div class="card-action">
-          <a class="white-text" href='/products/<%= product.id %>'>Product Page</a>
-          <a class="white-text" href="">Add to Wish List &nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <div class="div-2">
+          <a class="white-text" href='/products/<%= product.id %>'>Product Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+         
           <a class="white-text" href="https://www.google.com/search?q=<%=product.brand + " " + product.name%>"><i class="material-icons">search</i></a>
         </div>
       </div>
