@@ -54,13 +54,15 @@
       <a href="#name"><span class="white-text name">John Doe</span></a>
       <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
     </div></li>
-    <li><a href="/signup"><i class="material-icons">cloud</i>Sign up</a></li>
-    <div class="container"><li>Hello <%=current_user.username%></li></div>
+    <div class="container"><li>Welcome back <%=current_user.username%>!</li></div>
+    <li><a href="/search"><i class="material-icons">search</i>Search Users</a></li>
     <li><a class="waves-effect" href="/profile/<%=current_user.profile.id%>">My Profile</a></li>
     <li><a class="waves-effect" href="/products">My Products</a></li>
     <li><a class="waves-effect" href="/messages">Inbox</a></li>
+    <li><a class="waves-effect" href="/followers">My Followers</a></li>
+    <li><a class="waves-effect" href="/following">Users I'm Following</a></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
+    <li><a class="subheader">Make Changes</a></li>
     <li><a class="waves-effect" href="/profile/<%=current_user.profile.id%>/edit">Edit My Profile</a></li>
     <li><a class="waves-effect" href="/products/new">Add New Product</a></li>
     

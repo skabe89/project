@@ -10,6 +10,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    favorites = Product.all.where(:favorite => "on")
+    @featured = favorites.sample
+    @featured_user = User.find_by(id: @featured.user_id)
     erb :welcome
   end
 
