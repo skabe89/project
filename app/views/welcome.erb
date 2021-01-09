@@ -37,14 +37,17 @@
     <div class="col s12 m4">
       <div class="div-1 card large white">
         <div class="card-content cyan-text">
-          <span class="card-title"><h1 class="center-align"><b>Sketti's World</b></h1></span>
+          <span class="card-title"><h1 class="center-align"><b>Phase 2 Project</b></h1></span>
           <br>
-          <p>Welcome to Sketti's World! A place where friendship and skincare matter most!</p>
+          <p>Welcome to Phase 2 Project site! A place where friendship, skincare, and most of all YOU matter!</p>
           <p>Sign up or login to help make the world a more beautiful place!</p>
         </div>
+        <div>
+          <i class="large material-icons" style="color:#00BCD4">mood</i>
+        </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
+          <a class="cyan-text" href="#">About Us</a>
+          <a class="cyan-text" href="#">Contact Us</a>
         </div>
       </div>
     </div>
@@ -53,7 +56,6 @@
       <div class="div-1 card large pink lighten-3">
         <div class="card-content white-text">
           <span class="card-title"><h1 class="center-align"><b>Featured Product</b> </h1></span>
-          <br>
           <h4><%=@featured.brand%> <%=@featured.name%></h4>
           <h4><%=@featured.product_type%></h4>
           <h4><i class="material-icons" style="font-size:30px;color:red">favorite</i>'d by <a href="/profile/<%=@featured_user.id%>"><%=@featured_user.username%></a></h4>
@@ -70,6 +72,10 @@
         <div class="card-content white-text">
           <span class="card-title"><h1 class="center-align"><b> Users</h1></b></span>
           <h4>We are currently hosting the profiles of <%=User.all.length%> beautiful people!</h4>
+        </div>
+        <div>
+        <br>
+          <i class="large material-icons" style="color:white">people</i>
         </div>
         <div class="card-action">
           <b><a class="white-text" href="/users">List all users</a></b>
