@@ -2,8 +2,8 @@ class MessagesController < ApplicationController
   
   get '/messages' do
     redirect_if_not_logged_in
-    user_messages = Message.all
-    @messages = user_messages.select{|i|i.user_id == current_user.id || i.sender_id == current_user.id}.reverse
+    all_messages = Message.all
+    @messages = all_messages.select{|i|i.user_id == current_user.id || i.sender_id == current_user.id}.reverse
     @messages
     erb :'messages/user'
   end
@@ -17,7 +17,8 @@ class MessagesController < ApplicationController
 
   post '/send' do
     @message = Message.create(user_id: params[:receiver_id], sender_id: session[:user_id], content: params[:content])
-    redirect 'messages/user'
+    #flash success
+    redirect 'messages'
     # binding.pry
   end
 

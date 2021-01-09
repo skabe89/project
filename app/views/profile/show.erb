@@ -28,9 +28,17 @@
         text: black;
       }
 
+      .heart {
+        padding: 60px 0px 0px 0px;
+      }
+
+      .clicks {
+        position: fixed;
+        padding: 15px 0px 0px 50px;
+      }
 </style>
-<br>
-<div class="container">
+
+<div class="clicks">
 <%if @user != current_user%>
 <a href="/messages/<%=@user.id%>"><i class="medium material-icons">message</i></a>
 <%end%>
@@ -40,7 +48,7 @@
 <%if already_following?(@user.id)%>
 <br>
   <form action="/unfollow/<%=@user.id%>" method="post">
-  <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Unfollow" class="btn grey white-text">
   </form>
   <br>
@@ -55,6 +63,9 @@
   <br>
   <br>
 <%end%>
+</div>
+
+<div class="heart container">
 <div class="div-1 background red lighten-4 width: 60%;">
 <br>
 <h1 class="center-align"><b><%=@user.username.capitalize%></b></h1>
@@ -111,7 +122,7 @@
 <br>
 <br>
 <%if @user == current_user && !Follow.where(:follower_id => @user.id).empty?%>
-<h5>Currently following</h5>
+<h5><b>Currently following</b></h5>
   <%Follow.where(:follower_id => @user.id).each do |follow|%>
   <p><a href="/profile/<%=User.find_by(id: follow.following_id).id%>"><%=User.find_by(id: follow.following_id).username%></a></p>
   <%end%>
@@ -119,7 +130,7 @@
 
 <%if !Follow.where(:following_id => @user.id).empty?%>
   <div>
-  <h5>Currently followed by</h5>
+  <h5><b>Currently followed by</b></h5>
   </div>
   <%Follow.where(:following_id => @user.id).each do |follow|%>
   <p><a href="/profile/<%=User.find_by(id: follow.follower_id).id%>"><%=User.find_by(id: follow.follower_id).username%></a></p>

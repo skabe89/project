@@ -7,6 +7,7 @@ class FollowsController < ApplicationController
     redirect_if_attempting_to_follow_self
     if already_following?(@user.id)
       "already following!"
+      #flash error
     else
       add = Follow.new(follower_id: session[:user_id], following_id: @user.id)
       add.save

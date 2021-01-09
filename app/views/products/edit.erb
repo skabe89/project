@@ -1,6 +1,8 @@
 
 <div class="container">
-  <h1>Editing <%=@product.brand+" "%><%=@product.name%></h1><br>
+<div class= "container center-align">
+  <h1><b>Editing <%=@product.brand+" "%><%=@product.name%></b></h1><br>
+  </div>
   <div>
 
   <form action="/products/<%=@product.id%>" method="post">
@@ -57,6 +59,7 @@
     </select>
       <label for="rating"></label>
     </div>
+    <br>
     <% if @place %>
     <div class="">
       <label for="favorite"><input  id="favorite" name="product[favorite]" type="checkbox" checked="checked" class="validate"><span>Favorite</span></label>
@@ -67,7 +70,8 @@
     </div>
     <%end%>
     <br>
-    <input type="submit" value="Add Changes">
+    <br>
+    <input type="submit" value="Add Changes" class="btn blue">
   </form>
   </div>
 </div>
