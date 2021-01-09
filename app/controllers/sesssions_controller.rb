@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect '/'
     else
-      redirect '/'
+      redirect '/login'
     end
   end
 
@@ -38,6 +38,6 @@ class SessionsController < ApplicationController
 
   private
     def redirect_to_create_account_if_no_users
-      redirect '/signup' if users_empty?
+      redirect '/signup' unless users_occupied?
     end
 end

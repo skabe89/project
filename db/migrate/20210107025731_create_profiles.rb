@@ -5,7 +5,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :evening_routine
       t.string :bio
       t.integer :user_id
-
+      
       t.timestamps null: false
     end
   end

@@ -1,0 +1,26 @@
+class AddData < ActiveRecord::Migration
+  def change
+    User.create(username: "Sloth", password: "slothsloth")
+    User.create(username: "Squid", password: "squidsquid")
+    User.create(username: "Gummy", password: "gummygummy")
+    Profile.create(morning_routine: "Rinse, moisturize, roll.", evening_routine: "Wash, treat, moisturize.", bio: "I LOVE SKINCARE!!!", user_id: 1)
+    Profile.create(morning_routine: "Rinse, moisturize, get it done.", evening_routine: "Mask, wash, moisturize.", bio: "SKINCARE IS MY LIFE!!!", user_id: 2)
+    Profile.create(morning_routine: "Sometimes rinse, drink water.", evening_routine: "Sometimes wash, I am bad.", bio: "I LOVE TO CODE!!!", user_id: 3)
+    Message.create(user_id: 1, sender_id: 2, content: "Hi Sloth! How are you liking the products you have? Anything highly recommended?")
+    Message.create(user_id: 2, sender_id: 1, content: "Hey Squid, great to hear from you! I'm really liking the biossance stuff! Check my favorites, they are all recommended!")
+    Message.create(user_id: 3, sender_id: 1, content: "Hello Gummy, step your game up kid!")
+    Follow.create(follower_id: 1, following_id: 2)
+    Follow.create(follower_id: 1, following_id: 3)
+    Follow.create(follower_id: 2, following_id: 1)
+    Follow.create(follower_id: 3, following_id: 1)
+    Follow.create(follower_id: 3, following_id: 2)
+    Product.create(brand: "Biossance", name: "Squalene + Lactic Acid", product_type: "Treatment", description: "Use every other night, resurfaces", price: 62, rating: 9, favorite: "on", user_id: 1)
+    Product.create(brand: "Murad", name: "Clarifying Cleanser", product_type: "Cleanser", description: "Daily use, strong", price: 32, rating: 8, favorite: "on", user_id: 1)
+    Product.create(brand: "CeraVe", name: "Daily Moisturizng Lotion", product_type: "Moisturizer", description: "Dail use, full body", price: 12, rating: 7, favorite: "on", user_id: 1)
+    Product.create(brand: "Aveeno", name: "Relief Hand Cream", product_type: "Moisturizer", description: "Use when need on hands", price: 8, rating: 5, favorite: nil, user_id: 1)
+    Product.create(brand: "Kiehl's", name: "Ultra Facial Cleanser", product_type: "Cleanser", description: "Daily use", price: 22, rating: 8, favorite: "on", user_id: 2)
+    Product.create(brand: "Joanna Vargas", name: "Exfoliating Mask", product_type: "Mask", description: "Use 3 times a week, refines skin surface", price: 75, rating: 9, favorite: "on", user_id: 2)
+    Product.create(brand: "Biossance", name: "Squalene + Lactic Acid", product_type: "Treatment", description: "Use every other night, great", price: 62, rating: 9, favorite: "on", user_id: 2)
+    Product.create(brand: "Gushers", name: "Fruit Gushers", product_type: "Treatment", description: "Eat lots", price: 3, rating: 6, favorite: nil, user_id: 3)
+  end
+end
