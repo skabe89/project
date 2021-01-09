@@ -1,17 +1,20 @@
 class ProductsController < ApplicationController
 
   get '/products' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     @products = current_user.products.all
     erb :'products/index'
   end
 
   get '/products/new' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     erb :'products/new'
   end
 
   get '/products/:id' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     find_product
     redirect_if_product_not_found
@@ -20,6 +23,7 @@ class ProductsController < ApplicationController
   end
 
   get '/products/:id/edit' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     find_product
     redirect_if_product_not_found

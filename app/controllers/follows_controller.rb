@@ -1,6 +1,7 @@
 class FollowsController < ApplicationController
 
   get '/add/:id' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     @user = User.find_by(id: params[:id])
     redirect_if_user_not_found
@@ -16,6 +17,7 @@ class FollowsController < ApplicationController
   end
 
   delete '/unfollow/:id' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     @user = User.find_by(id: params[:id])
     redirect_if_user_not_found
@@ -26,12 +28,14 @@ class FollowsController < ApplicationController
   end
   
   get '/following' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     @following = following
     erb :'profile/following'
   end
   
   get '/followers' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     @followers = followers
     erb :'profile/followers'

@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   
   get '/messages' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     all_messages = Message.all
     @messages = all_messages.select{|i|i.user_id == current_user.id || i.sender_id == current_user.id}.reverse
@@ -9,6 +10,7 @@ class MessagesController < ApplicationController
   end
 
   get '/messages/:id' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     @user = User.find_by(id: params[:id])
     redirect_if_user_not_found

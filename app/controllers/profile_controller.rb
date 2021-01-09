@@ -1,11 +1,13 @@
 class ProfileController < ApplicationController
 
   get '/profile' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     redirect "profile/#{current_user.id}"
   end
 
   get '/profile/:id' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     find_user
     redirect_if_profile_not_found
@@ -13,6 +15,7 @@ class ProfileController < ApplicationController
   end
 
   get '/profile/:id/edit' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     find_user
     redirect_if_not_profile_owner
@@ -20,6 +23,7 @@ class ProfileController < ApplicationController
   end
 
   get '/profile/:id/products' do
+    redirect_if_users_empty
     redirect_if_not_logged_in
     find_user
     @products = @user.products.all

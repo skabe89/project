@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
   end
 
   get '/login' do
+    redirect_to_create_account_if_no_users
     erb :'sessions/login'
   end
 
@@ -34,4 +35,9 @@ class SessionsController < ApplicationController
     session.clear
     redirect '/'
   end
+
+  private
+    def redirect_to_create_account_if_no_users
+      redirect '/signup' if users_empty?
+    end
 end
