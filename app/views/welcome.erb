@@ -56,6 +56,8 @@
       <div class="div-1 card large pink lighten-3">
         <div class="card-content white-text">
           <span class="card-title"><h1 class="center-align"><b>Featured Product</b> </h1></span>
+          <br>
+          <%if @featured%>
           <h4><%=@featured.brand%> <%=@featured.name%></h4>
           <h4><%=@featured.product_type%></h4>
           <h4><i class="material-icons" style="font-size:30px;color:red">favorite</i>'d by <a href="/profile/<%=@featured_user.id%>"><%=@featured_user.username%></a></h4>
@@ -64,6 +66,12 @@
           <a class="white-text"href="/products/<%=@featured.id%>"><b>Product Page</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
           <a class="white-text"href="https://www.google.com/search?q=<%=@featured.brand%> <%=@featured.name%>"><i class="material-icons">search</i></a>
         </div>
+        <%else%>
+          <h4>There are no Favorited Products Yet!</h4>
+        </div>
+        <div class="card-action">
+        </div>
+        <%end%>
       </div>
     </div>
 

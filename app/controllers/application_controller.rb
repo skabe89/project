@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
   get "/" do
     favorites = Product.all.where(:favorite => "on")
     @featured = favorites.sample
-    @featured_user = User.find_by(id: @featured.user_id)
+    @featured_user = User.find_by(id: @featured.user_id) if @featured
     erb :welcome
   end
 
@@ -21,6 +21,11 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do 
+    def users_empty?
+      @user = User.all
+      !@user
+    end
+
     def is_logged_in?
       !!session[:user_id]
     end
