@@ -21,13 +21,12 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do 
-    def users_empty?
-      @user = User.all
-      !!@user
+    def users_occupied?
+      !User.all.empty?
     end
 
     def redirect_if_users_empty
-      redirect "/" if users_empty?
+      redirect "/" unless users_occupied?
     end
 
     def is_logged_in?
