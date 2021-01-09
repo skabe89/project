@@ -1,6 +1,12 @@
-
-<div class="container">
-<h3>Currently Following</h3>
+<style>
+  .div-1{
+    padding: 20px 0px 20px 0px;
+  }
+</style>
+<div class="container center-align">
+<div class="div-1 container center-align">
+<h3><b>Currently Following</b></h3>
+</div>
   <%@following.each do |f|%>
   <h3><a href="/profile/<%=f.id%>"><%=f.username%></a></h3>
   <%end%>

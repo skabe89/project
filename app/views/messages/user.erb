@@ -26,17 +26,17 @@
 <%@messages.each do |m|%>
   <%if m.user_id == current_user.id%>
   <div class="recieved left-align deep-orange lighten-5">
-  <h4><i><b>From: </i><%=User.find_by(id: m[:sender_id])[:username]%></b></h4>
+  <h4><i><b>From: </i><a href="#"><%=User.find_by(id: m[:sender_id])[:username]%></a></b></h4>
   <h6><%=m[:content]%></h6>
   <form action="/messages/<%=m[:sender_id]%>" method="get">
   <br>
-  <input type="submit" value="Message User" class="btn-tiny blue white-text">
+  <input type="submit" value="Message User" class="btn-small blue white-text">
   </div>
   </form>
   <br>
   <%else%>
   <div class="sent right-align light-blue lighten-4">
-  <h4><i><b>To: </i><%=User.find_by(id: m[:user_id])[:username]%></b></h4>
+  <h4><i><b>To: </i><a href="#"><%=User.find_by(id: m[:user_id])[:username]%></a></b></h4>
   <h6><%=m[:content]%></h6>
   </div>
   <br>
