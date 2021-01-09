@@ -6,9 +6,7 @@ This website application is meant to...
 
 ## Installation
 
-After cloning the repository:
-
-In your terminal type:
+After cloning the repository, in your terminal type:
 
 ```ruby
 $ bundle install
@@ -24,9 +22,9 @@ Inside the '.env' file
 
     SESSION_SECRET="whatever you want your session secret to be"
 
-*preferably use SecureRandom
+*preferably use SecureRandom https://ruby-doc.org/stdlib-2.5.1/libdoc/securerandom/rdoc/SecureRandom.html
 
-At this go ahead and migrate the db with;
+At this point go ahead and migrate the db with;
 
     rake db:migrate
 
@@ -38,7 +36,7 @@ Pull up your local server in a browser and have fun!
 
 ## Usage
 
-Use bin/run within the 'Ballers' folder inside your terminal to run the program.
-
-Follow the prompts and have fun!
+There are a few example profiles inside the AddData migration. You can use those profiles
+by using their 'username' and 'password' to log in or you can create your own account(s).
+Have fun!
 
