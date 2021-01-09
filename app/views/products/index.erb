@@ -2,12 +2,12 @@
 <style>
       .div-1 {
         opacity: .75;    
-      position: relative;
-      text-align: center;
-      border-top-right-radius:15px;
-      border-top-left-radius:15px;
-      border-bottom-right-radius:15px;
-      border-bottom-left-radius:15px;
+        position: relative;
+        text-align: center;
+        border-top-right-radius:15px;
+        border-top-left-radius:15px;
+        border-bottom-right-radius:15px;
+        border-bottom-left-radius:15px;
       }
       .div-1:hover {
         opacity: 1.0;
@@ -26,13 +26,21 @@
         opacity: 1.0;
         text: black;
       }
+
+      .pad {
+        padding: 30px 0px 0px 0px;
+      }
+
       .add-new {
+        position: fixed;
         padding: 15px 0px 25px 15px;
       }
 </style>
 
-<div class="add-new container">
+<div class="add-new">
 <h5><a href="/products/new"><i class="material-icons">add_circle_outline</i> Add New Product</a></h5>
+</div>
+<div class="pad">
 </div>
 <div class="container"> 
 <% @products.each do |product| %>
