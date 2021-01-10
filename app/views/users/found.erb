@@ -2,11 +2,11 @@
 <div class="container">
 
 <%if !@users.empty?%>
-<h1>Your seach has found...</h1>
+<h2 class="center-align"><b>Your seach has found...</b></h2>
   <%@users.each do |user|%>
-  <h3><a href="/profile/<%=user.id%>"><%=user.username%></a></h3>
+  <h3><b><a href="/profile/<%=user.id%>"><%=user.username%></a></b></h3>
   <%end%>
 <%else%>
-  <h2>  Sorry, we could not find that user! </h2>
+  <b><h2>  Sorry, we could not find that user! </h2></b>
 <%end%>
 </div>

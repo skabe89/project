@@ -1,9 +1,15 @@
+<style>
+  .div-1 {
+    padding: 20px 0px 0px 0px;
+  }
+</style>
 
-<div class="container">
+<div class="div-1 container">
+<h2 class="center-align"><b>Our Current Users</b></h2>
   <%@users.each do |user|%>
-    <h4><%=user.username%></h4>
+    <h3><a href="profile/<%=user.id%>"><b><%=user.username%></b></a></h3>
       <%if already_following?(user.id)%>
-        <p>Currently Following</p>
+        <p class="grey-text"><i>Currently Following</i></p>
       <%elsif user.id == current_user.id%>
         <br>
       <%else%>

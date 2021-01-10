@@ -5,9 +5,9 @@
 </style>
 <div class="div-1 container center-align">
 <div class="container center-align">
-<h3><b>Users Currently Following You</b></h3>
+<h2><b>Users Currently Following You</b></h2>
 </div>
   <%@followers.each do |f|%>
-  <h3><a href="/profile/<%=f.id%>"><%=f.username%></a></h3>
+  <h3 class="left-align"><b><a href="/profile/<%=f.id%>"><%=f.username%></a></b></h3>
   <%end%>
 </div>
