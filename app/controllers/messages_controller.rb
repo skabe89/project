@@ -19,9 +19,7 @@ class MessagesController < ApplicationController
 
   post '/send' do
     @message = Message.create(user_id: params[:receiver_id], sender_id: session[:user_id], content: params[:content])
-    #flash success
     redirect 'messages'
-    # binding.pry
   end
 
   private
