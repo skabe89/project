@@ -3,11 +3,11 @@
 
 This website application is meant to...
 Catalogue a user's skincare products,
--Create a space where you can create and view another user's;
-  -Routine
-  -Short bio,
-  -Favorited products
-  -Messages
+- Create a space where you can create and view another user's;
+  - Routine
+  - Short bio,
+  - Favorited products
+  - Messages
 
 
 
